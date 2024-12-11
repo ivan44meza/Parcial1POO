@@ -26,7 +26,8 @@ public class parcialMenu {
             System.out.println("Ingrese su codigo");
             String codigo = sc.nextLine();
 
-            if (usuario == "Empleado " && codigo == "1") {
+            // Tuve un error en el lenguaje al comparar los valores use "=="
+            if (usuario.equals("Empleado") && codigo.equals("1")) {
                 Empleado persona = new Empleado(usuario, Integer.parseInt(codigo));
 
                 System.out.println("Pagina de entrada del Restaurante \n Bienvenido");
@@ -57,7 +58,8 @@ public class parcialMenu {
                         System.out.println("Debe poner un numero en la opcion (1 o 2)");
                         break;
                 }
-            } else if (usuario == "Cliente" && codigo == "2"){
+            // Tuve un error en el lenguaje al comparar los valores use "=="
+            } else if (usuario.equals("Cliente") && codigo.equals("2")){
                 Cliente persona = new Cliente(usuario);
 
                 System.out.println("Pagina de entrada del Restaurante \n Bienvenido");
@@ -89,7 +91,21 @@ public class parcialMenu {
                         break;
                 }
             } else {
-                System.out.println("Por favor ingrese un usuario o codigo correcto");
+                System.out.println("Por favor ingrese un usuario o codigo correcto \n");
+
+                System.out.println("1. Volver a intentar");
+                System.out.println("2. Salir");
+
+                opcion = Integer.parseInt(sc.nextLine());
+
+                switch (opcion) {
+                    case 2:
+                        abierto = false;
+                        break;
+                
+                    default:
+                        break;
+                }
             }
             
             
